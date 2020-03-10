@@ -7,7 +7,7 @@ export class Player extends GameObject {
     constructor() {
         super();
         this._spriteRenderer = new SpriteRenderer(this, {
-            images: ["./Assets/images/AgentMorris_SpriteSheet.png"],
+            images: ["./assets/images/AgentMorris_SpriteSheet.png"],
             frames: { width: 64, height: 64 },
             animations: {
                 idle: [0, 1, undefined, 0.1],

@@ -6,7 +6,7 @@ export class Sensor extends GameObject {
     constructor() {
         super();
         this._spriteRenderer = new SpriteRenderer(this, {
-            images: ["./Assets/images/sensorPlaceholder.png"],
+            images: ["./assets/images/sensorPlaceholder.png"],
             frames: { width: 64, height: 64 },
             animations: {
                 idle: 0
