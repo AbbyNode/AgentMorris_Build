@@ -19,37 +19,37 @@ export class AssetManager {
         this._assetManifest = [
             {
                 id: AssetName.SpriteSheet,
-                src: "../../assets/images/AgentMorris_SpriteSheet.png",
+                src: "./assets/images/AgentMorris_SpriteSheet.png",
                 type: AssetType.IMAGE
             },
             {
                 id: AssetName.Background,
-                src: "../../assets/images/Background/menuBackground.png",
+                src: "./assets/images/Background/menuBackground.png",
                 type: AssetType.IMAGE
             },
             {
                 id: AssetName.Logo,
-                src: "../../assets/images/Background/logo.png",
+                src: "./assets/images/Background/logo.png",
                 type: AssetType.IMAGE
             },
             {
                 id: AssetName.LevelExample,
-                src: "../../assets/levels/example.csv",
+                src: "./assets/levels/example.csv",
                 type: AssetType.CSV
             },
             {
                 id: AssetName.Level1,
-                src: "../../assets/levels/Level1.csv",
+                src: "./assets/levels/Level1.csv",
                 type: AssetType.CSV
             },
             {
                 id: AssetName.Level2,
-                src: "../../assets/levels/Level2.csv",
+                src: "./assets/levels/Level2.csv",
                 type: AssetType.CSV
             },
             {
                 id: AssetName.Level3,
-                src: "../../assets/levels/Level3.csv",
+                src: "./assets/levels/Level3.csv",
                 type: AssetType.CSV
             }
         ];
