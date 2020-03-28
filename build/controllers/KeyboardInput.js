@@ -2,19 +2,21 @@ export class KeyboardInput {
     constructor() {
         this._keyMap = new Map();
         this._isDownMap = new Map();
-        document.addEventListener("keydown", (event) => {
+        this._downListener = (event) => {
             if (this._keyMap.has(event.key) // exists
                 && !this._isDownMap.get(event.key)) { // is not held
                 this._keyMap.get(event.key).down();
                 this._isDownMap.set(event.key, true);
             }
-        });
-        document.addEventListener("keyup", (event) => {
+        };
+        document.addEventListener("keydown", this._downListener);
+        this._upListener = (event) => {
             if (this._keyMap.has(event.key)) {
                 this._keyMap.get(event.key).up();
                 this._isDownMap.set(event.key, false);
             }
-        });
+        };
+        document.addEventListener("keyup", this._upListener);
     }
     addKey(key, keyMap) {
         if (this._keyMap.has(key)) {
@@ -28,6 +30,10 @@ export class KeyboardInput {
     removeKey(key) {
         this._keyMap.delete(key);
         this._isDownMap.delete(key);
+    }
+    destroy() {
+        document.removeEventListener("keydown", this._downListener);
+        document.removeEventListener("keyup", this._upListener);
     }
 }
 // any file containing a top-level import or export is considered a module.

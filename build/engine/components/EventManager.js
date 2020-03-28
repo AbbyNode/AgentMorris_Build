@@ -1,4 +1,5 @@
-import { GameComponent } from "../GameComponent.js";
+import { GameComponent } from "../gameobject/GameComponent.js";
+import { EventName } from "./EventName.js";
 /**
  * An event class used within the event manager
  *
@@ -22,6 +23,9 @@ export class Event {
             listener(data);
         });
     }
+    clear() {
+        this._listeners = [];
+    }
 }
 /**
  * An Event Manager that can associate multiple listeners to named events
@@ -33,6 +37,9 @@ export class EventManager extends GameComponent {
     constructor(gameObject) {
         super(gameObject);
         this._events = new Map();
+        this.addListener(EventName.GameObject_Destroy, () => {
+            this.destroy();
+        });
     }
     addListener(name, listener) {
         let event = this._events.get(name);
@@ -54,6 +61,12 @@ export class EventManager extends GameComponent {
         if (event != undefined) {
             event.invoke(data);
         }
+    }
+    destroy() {
+        this._events.forEach(event => {
+            event.clear();
+        });
+        this._events.clear();
     }
 }
 //# sourceMappingURL=EventManager.js.map

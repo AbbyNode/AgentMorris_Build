@@ -1,32 +1,30 @@
-import { LevelExample } from "./levels/LevelExample.js";
+import { Global } from "./managers/Global.js";
+import { SceneName } from "./managers/SceneManager.js";
 class Game {
-    // TODO: Rename assets/images to lowercase?
     constructor() {
-        window.addEventListener("load", () => {
-            this.init();
-        });
-    }
-    init() {
-        this.canvas = document.getElementsByTagName('canvas')[0];
-        if (this.canvas == undefined) {
+        this._canvas = document.getElementsByTagName("canvas")[0];
+        if (this._canvas == undefined) {
             throw new Error("Canvas not found");
         }
-        this.stage = new createjs.Stage(this.canvas);
-        this.levelScene = new LevelExample(this.stage);
-        this.levelScene.init();
-        // stage.enableMouseOver(20);
-        // Collider.toggleDebugView(true);
+        this._stage = new createjs.Stage(this._canvas);
+        Global.init(this._stage);
+        Global.assetManager.onComplete(this.start, this);
+        Global.assetManager.load();
+    }
+    start() {
+        Global.sceneManager.setScene(SceneName.Splash);
+        // Global.levelManager.start();
+        // Global.sceneManager.setScene(SceneName.Menu);
+        // Global.sceneManager.setScene(SceneName.LevelExample);
         createjs.Ticker.framerate = 60; // fps
-        createjs.Ticker.on('tick', this.update, this);
+        createjs.Ticker.on("tick", this.update, this);
     }
     update() {
-        if (this.stage == undefined) {
-            throw new Error("Stage is not defined");
-        }
-        // If stage is defined, levelScene is probably defined too
-        this.levelScene.update();
-        this.stage.update();
+        Global.sceneManager.update();
+        this._stage.update();
     }
 }
-new Game();
+window.addEventListener("load", () => {
+    new Game();
+});
 //# sourceMappingURL=Game.js.map

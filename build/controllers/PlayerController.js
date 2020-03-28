@@ -16,14 +16,17 @@ export class PlayerController {
     GenKeyMap(direction) {
         return {
             down: () => {
-                this._player.eventManager.invoke(EventName.PlayerController_MoveStart, direction);
+                this._player.eventManager.invoke(EventName.Mover_RequestStart, direction);
                 // this._player.moveStart(direction);
             },
             up: () => {
-                this._player.eventManager.invoke(EventName.PlayerController_MoveStop, direction);
+                this._player.eventManager.invoke(EventName.Mover_RequestStop, direction);
                 // this._player.moveStop(direction);
             }
         };
+    }
+    destroy() {
+        this._keyboardInput.destroy();
     }
 }
 //# sourceMappingURL=PlayerController.js.map
