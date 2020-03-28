@@ -28,8 +28,8 @@ export class SceneManager {
         var _a;
         (_a = this._currentScene) === null || _a === void 0 ? void 0 : _a.destroy();
         // Ideally the scene should have removed everything, but just in case
-        // this._stage.removeAllChildren();
-        // this._stage.removeAllEventListeners();
+        this._stage.removeAllChildren();
+        this._stage.removeAllEventListeners();
         this._currentScene = this._newScene(sceneName);
         this._currentScene.init();
         return this._currentScene;

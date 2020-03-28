@@ -25,9 +25,9 @@ export class SplashScene extends Scene {
         this._logo.y = 208;
         // this.stage.addChild(this._logo);
         this._fadeContainer.addChild(this._logo);
-        this._objects.push(this._logo);
         this._fadeContainer.alpha = 0;
         this.stage.addChild(this._fadeContainer);
+        this._objects.push(this._fadeContainer);
     }
     init() {
         createjs.Tween.get(this._fadeContainer)
