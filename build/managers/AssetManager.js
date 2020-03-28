@@ -19,7 +19,7 @@ export class AssetManager {
         this._assetManifest = [
             {
                 id: AssetName.SpriteSheet,
-                src: "/assets/images/AgentMorris_SpriteSheet.png",
+                src: "./assets/images/AgentMorris_SpriteSheet.png",
                 type: AssetType.IMAGE
             },
             {
