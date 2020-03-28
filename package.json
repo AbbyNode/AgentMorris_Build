@@ -1,0 +1,34 @@
+{
+	"name": "agentmorris",
+	"version": "1.0.0",
+	"description": "Top-down stealth shooter game",
+	"browser": "index.html",
+	"scripts": {
+		"play": "lite-server"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/AbbyNode/AgentMorris.git"
+	},
+	"author": "Chippers",
+	"contributors": [
+		"Abby Shah",
+		"Deng Zhonghua"
+	],
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/AbbyNode/AgentMorris/issues"
+	},
+	"homepage": "https://github.com/AbbyNode/AgentMorris#readme",
+	"dependencies": {
+		"createjs": "^1.0.1",
+		"easeljs": "^1.0.2",
+		"papaparse": "^5.1.1",
+		"preloadjs": "^1.0.1",
+		"soundjs": "^1.0.1",
+		"tweenjs": "^1.0.2"
+	},
+	"devDependencies": {
+		"lite-server": "^2.5.4"
+	}
+}
