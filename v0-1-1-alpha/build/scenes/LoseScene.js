@@ -7,7 +7,7 @@ import { Button } from "../objects/ui/Button.js";
 export class LoseScene extends Scene {
     constructor(stage) {
         super(stage);
-        let background = new createjs.Bitmap(Global.assetManager.getResult(AssetName.Background));
+        let background = new createjs.Bitmap(Global.assetManager.getResult(AssetName.Image_Background));
         background.scaleX = 4.48;
         background.scaleY = 4.48;
         this.stage.addChild(background);

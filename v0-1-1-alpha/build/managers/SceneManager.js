@@ -44,13 +44,13 @@ export class SceneManager {
             case SceneName.Menu:
                 return new MenuScene(this._stage);
             case SceneName.LevelExample:
-                return this._newLevelScene(AssetName.LevelExample);
+                return this._newLevelScene(AssetName.Level_Example);
             case SceneName.Level1:
-                return this._newLevelScene(AssetName.Level1);
+                return this._newLevelScene(AssetName.Level_1);
             case SceneName.Level2:
-                return this._newLevelScene(AssetName.Level2);
+                return this._newLevelScene(AssetName.Level_2);
             case SceneName.Level3:
-                return this._newLevelScene(AssetName.Level3);
+                return this._newLevelScene(AssetName.Level_3);
             case SceneName.Win:
                 return new WinScene(this._stage);
             case SceneName.Lose:

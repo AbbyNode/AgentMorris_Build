@@ -4,6 +4,8 @@ import { PlayerController } from "../controllers/PlayerController.js";
 import { TileMap } from "../engine/tiles/TileMap.js";
 import { Global } from "../managers/Global.js";
 import { GameObject } from "../engine/gameobject/GameObject.js";
+import { AssetName } from "../managers/AssetManager.js";
+import { Button } from "../objects/ui/Button.js";
 export class LevelScene extends Scene {
     constructor(stage, levelCsv) {
         super(stage);
@@ -14,6 +16,12 @@ export class LevelScene extends Scene {
         this._player = this.getPlayerFromTileMap();
         GameObject.bringZToFront(this._player, this.stage);
         this._playerController = new PlayerController(this._player);
+        let buttonMusic = new Button("Music", (event) => {
+            this._toggleMusic();
+        }, { width: 100, height: 40 });
+        buttonMusic.transform.position = { x: 10, y: 10 };
+        buttonMusic.init(stage);
+        this._objects.push(buttonMusic);
     }
     get tileMap() {
         return this._tileMap;
@@ -29,7 +37,12 @@ export class LevelScene extends Scene {
         return player;
     }
     init() {
+        // Disabled by parent on destroy
+        this.stage.enableMouseOver(20);
         this._playerController.initWASD();
+        this._music = createjs.Sound.play(AssetName.Sound_MusicGame, {
+            loop: -1
+        });
     }
     update() {
         this._tileMap.updateAllEntities();
@@ -38,6 +51,14 @@ export class LevelScene extends Scene {
         super.destroy();
         this._playerController.destroy();
         this._tileMap.destroyAllTiles();
+        if (this._music) {
+            this._music.stop();
+        }
+    }
+    _toggleMusic() {
+        if (this._music) {
+            this._music.paused = !this._music.paused;
+        }
     }
 }
 //# sourceMappingURL=LevelScene.js.map

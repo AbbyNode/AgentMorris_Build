@@ -10,7 +10,7 @@ export class Intel extends Entity {
     constructor() {
         super();
         this._spriteRenderer = new SpriteRenderer(this, {
-            images: [Global.assetManager.getResult(AssetName.SpriteSheet)],
+            images: [Global.assetManager.getResult(AssetName.Image_SpriteSheet)],
             frames: { width: 64, height: 64, regX: 32, regY: 32, spacing: 1 },
             animations: {
                 idle: 51

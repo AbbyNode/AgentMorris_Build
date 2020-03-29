@@ -18,7 +18,7 @@ export class SplashScene extends Scene {
         // this._objects.push(label);
         this._fadeContainer.addChild(label.container);
         label.eventManager.invoke(EventName.GameObject_Init, this.stage);
-        this._logo = new createjs.Bitmap(Global.assetManager.getResult(AssetName.Logo));
+        this._logo = new createjs.Bitmap(Global.assetManager.getResult(AssetName.Image_Logo));
         this._logo.scaleX = 2;
         this._logo.scaleY = 2;
         this._logo.x = 688;
