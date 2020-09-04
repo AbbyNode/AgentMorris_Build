@@ -23,7 +23,7 @@
 	"dependencies": {
 		"createjs": "^1.0.1",
 		"easeljs": "^1.0.2",
-		"papaparse": "^5.1.1",
+		"papaparse": "^5.2.0",
 		"preloadjs": "^1.0.1",
 		"soundjs": "^1.0.1",
 		"tweenjs": "^1.0.2"
